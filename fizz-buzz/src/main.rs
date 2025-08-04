@@ -3,13 +3,17 @@ fn main() {
 }
 
 fn fizz_buzz(number: i32) -> String {
-    if number % 3 == 0 {
+    if number_is_multiple_of(number, 3) {
         return "Fizz".to_string()
-    } else if number % 5 == 0 {
+    } else if number_is_multiple_of(number, 5) {
         return "Buzz".to_string()
     }
 
     number.to_string()
+}
+
+fn number_is_multiple_of(number: i32, multiplier: i32) -> bool {
+    number % multiplier == 0
 }
 
 #[cfg(test)]
