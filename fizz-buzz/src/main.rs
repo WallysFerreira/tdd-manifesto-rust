@@ -3,13 +3,12 @@ fn main() {
 }
 
 fn fizz_buzz(number: i32) -> String {
-    if number_is_multiple_of(number, 3) {
-        return "Fizz".to_string()
-    } else if number_is_multiple_of(number, 5) {
-        return "Buzz".to_string()
+    match (number_is_multiple_of(number, 3), number_is_multiple_of(number, 5)) {
+        (true, true) => "FizzBuzz".to_string(),
+        (true, false) => "Fizz".to_string(),
+        (false, true) => "Buzz".to_string(),
+        (false, false) => number.to_string(),
     }
-
-    number.to_string()
 }
 
 fn number_is_multiple_of(number: i32, multiplier: i32) -> bool {
@@ -41,5 +40,12 @@ mod tests {
         let number = 10;
 
         assert_eq!(fizz_buzz(number), "Buzz")
+    }
+
+    #[test]
+    fn test_should_return_fizz_buzz_for_multiples_of_five_and_three() {
+        let number = 30;
+
+        assert_eq!(fizz_buzz(number), "FizzBuzz")
     }
 }
