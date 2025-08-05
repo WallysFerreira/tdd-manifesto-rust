@@ -3,7 +3,7 @@ fn main() {
 }
 
 fn fizz_buzz(number: i32) -> String {
-    match (number_is_multiple_of(number, 3), number_is_multiple_of(number, 5)) {
+    match (is_multiple_of(number, 3), is_multiple_of(number, 5)) {
         (true, true) => "FizzBuzz".to_string(),
         (true, false) => "Fizz".to_string(),
         (false, true) => "Buzz".to_string(),
@@ -11,8 +11,8 @@ fn fizz_buzz(number: i32) -> String {
     }
 }
 
-fn number_is_multiple_of(number: i32, multiplier: i32) -> bool {
-    number % multiplier == 0
+fn is_multiple_of(number: i32, divisor: i32) -> bool {
+    number % divisor == 0
 }
 
 #[cfg(test)]
